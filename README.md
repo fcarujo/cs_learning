@@ -1,5 +1,5 @@
 # Cybersecurity Research & Engineering Lab
-> **This github repository documents my technical specialization into Cybersecurity. It aims to servee as a transparent log of my hands on labs and certification progress, while also focusing on translating 6 years of Business Intelligence experience into the fields of Infrastructure Defense and Cloud Security Architecture.
+This github repository documents my technical specialization into Cybersecurity. It aims to servee as a transparent log of my hands on labs and certification progress, while also focusing on translating 6 years of Business Intelligence experience into the fields of Infrastructure Defense and Cloud Security Architecture.
 
 ## Projects
 
