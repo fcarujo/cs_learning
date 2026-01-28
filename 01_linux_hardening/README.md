@@ -26,11 +26,13 @@ sudo apt update && sudo apt upgrade -y
 
 # Intrusion Prevention Setup 
 sudo apt install fail2ban -y
+
 ![Fail2Ban Installation Output](./assets/fail2ban_install.png)
 
 # Firewall Configuration 
 sudo ufw allow 22/tcp
 sudo ufw enable
+
 ![UFW Status Verification](./assets/ufw_status.png)
 ```
 
