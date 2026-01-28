@@ -3,7 +3,7 @@ This github repository documents my technical specialization into Cybersecurity.
 
 ## Projects
 
-### [01. Linux Infrastructure Hardening](./01-linux-hardening/)
+### [01. Linux Infrastructure Hardening](./01_linux_hardening/)
 * **Focus:** Identity security (ED25519), intrusion prevention (Fail2Ban), and host firewalls (UFW).
 * **Environment:** AWS EC2 (Ubuntu 24.04 ARM64).
 * **Key Outcome:** Transitioned a default cloud instance to a hardened baseline with a "Deny-All" perimeter.
