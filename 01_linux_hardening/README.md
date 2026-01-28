@@ -24,10 +24,10 @@ The goal of this project was to set-up (or provision) a modern, cloud-native Lin
 # System Update & Patching
 sudo apt update && sudo apt upgrade -y
 
-# Intrusion Prevention Setup
+# Intrusion Prevention Setup ![Fail2Ban Installation Output](./.assets/fail2ban_install.png)
 sudo apt install fail2ban -y
 
-# Firewall Configuration
+# Firewall Configuration ![UFW Status Verification](./.assets/ufw_status.png)
 sudo ufw allow 22/tcp
 sudo ufw enable
 ```
