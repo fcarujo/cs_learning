@@ -8,7 +8,7 @@ This github repository documents my technical specialization into Cybersecurity.
 * **Environment:** AWS EC2 (Ubuntu 24.04 ARM64).
 * **Key Outcome:** Transitioned a default cloud instance to a hardened baseline with a "Deny-All" perimeter.
 
-### 02. VPC Network Segmentation (Coming Soon)
+### [02. VPC Network Segmentation](./02_vpc_network_segmentation/)
 * **Focus:** Network ACLs, Private Subnets, and Identity-based access (EICE).
 * **Goal:** Building a 3-tier architecture with zero public internet exposure.
 
