@@ -1,4 +1,5 @@
 # VPC network segmentation
+**Status:** Completed | **Environment:** AWS | **OS:** Ubuntu 24.04 LTS (ARM64)
 
 ## Project brief
 The goal of this project was to implement a secure, multi-tier AWS network architecture. In doing so, I want to demonstrate **Defense in Depth** practices by isolating application logic from the public internet using custom VPC subnets, NAT Gateways, and Security Group referencing. This setup ensures that even if one part is compromised, the rest of the network stays protected.
