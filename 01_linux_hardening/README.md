@@ -26,15 +26,16 @@ sudo apt update && sudo apt upgrade -y
 
 # Intrusion Prevention Setup 
 sudo apt install fail2ban -y
-
+```
 ![Fail2Ban Installation Output](./assets/fail2ban_install.png)
 
+```bash
 # Firewall Configuration 
 sudo ufw allow 22/tcp
 sudo ufw enable
-
-![UFW Status Verification](./assets/ufw_status.png)
 ```
+![UFW Status Verification](./assets/ufw_status.png)
+
 
 ## Gap analysis & future improvements not addressed in this exercise
 While this exercise aimed to stablish a secure baseline, the following enhancements would be required for a production grade environment:
