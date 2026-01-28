@@ -6,6 +6,8 @@ The goal of this project was to implement a secure, multi-tier AWS network archi
 ## Architecture design
 The infrastructure was built inside a custom VPC (`10.0.0.0/16`) to ensure a completely isolated environment.
 
+![VPC Resource Map](./assets/amzn_aws_vpc_resource_map.png)
+
 ### 1. Public web tier
 - **Subnet:** `10.0.1.0/24` (Public)
 - **Component:** `public-web-01` (EC2)
@@ -31,8 +33,12 @@ A security test conducted was that a breach of the public tier would not allow a
 - **Result:** **100% Packet Loss.**
 - **Security Logic:** Showed that the "Default Deny" firewall posture prevented the discovery of internal assets.
 
+![Reachability Analyzer Path](./assets/amzn_aws_reachability_analyzer.png)
+
 ### 2. Security group referencing
 Instead of using IP-based rules, I have implemented **Security Group Referencing** to ensure traffic only flows through authorized ports:
+
+![Security Group Inbound Rules](./assets/amzn_aws_group_security_inbound_rules.png)
 
 | Connection | Protocol | Authorization |
 | :--- | :--- | :--- |
