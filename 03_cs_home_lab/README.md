@@ -94,15 +94,38 @@ This phase introduces the offensive machine used to execute network scans, vulne
 
 ---
 
-## Current Status
+## Phase 3: Deploying the Victims & Lab Validation
+This phase marks the completion of the lab's physical architecture. I deployed the first victim and performed a rigorous "Hard Audit" to ensure the firewall and network isolation were performing exactly as designed.
 
-- [x] **Phase 1: Network & Infrastructure**
-  - [x] Host OS Secured & Backed Up
-  - [x] Virtual Networks Defined
-  - [x] Firewall/Gateway Installed & Configured
-- [x] **Phase 2: Deploying the Attacker (Kali Linux)**
-  - [x] Base OS Installed & Localized
-  - [x] Static Routing & Network Verification
-- [ ] **Phase 3: Deploying the Victims**
-  - [ ] Metasploitable 2
-  - [ ] Windows Server
+### 1. Victim Deployment (Metasploitable 2)
+* **OS:** Metasploitable 2 (Intentionally vulnerable Linux distribution).
+* **Network Placement:** Connected to `vmnet1` (Isolated Lab).
+* **Automatic Configuration:** Verified the VM successfully received an IP address (`10.10.10.179`) from the OPNsense DHCP server, confirming the LAN-side services are operational.
+
+### 2. Architectural Validation (The "Hard Audit")
+Before beginning offensive operations, I performed four specific checks to verify the security and integrity of the "Digital Vault."
+
+| Validation Test | Method | Expected Result | Outcome |
+| :--- | :--- | :--- | :--- |
+| **Ingress Routing** | `ping` from Kali to Victim | 0% Packet Loss | **PASSED** |
+| **Egress Isolation** | `ping 8.8.8.8` from Victim | 100% Packet Loss | **PASSED** |
+| **Stateful Inspection** | Audit OPNsense `States` Table | Active ICMP flow (State 0:0) | **PASSED** |
+| **Log Verification** | Firewall Live View | Visual "Pass" logs on WAN Rule | **PASSED** |
+
+#### **Key Technical Findings:**
+* **The "Vault" Seal:** Verified that while the victim can communicate with the OPNsense gateway (`10.10.10.254`), it has zero reachability to the internet. This was achieved by disabling **Outbound NAT** and removing the **Default Allow LAN** rule. This ensures that any "malware" executed in the lab is trapped within the virtual environment.
+* **Stateful Transparency:** Verified through the OPNsense Diagnostics that the firewall is actively tracking connections. The `0:0` state confirms a healthy, bidirectional handshake through the firewall between the two subnets.
+* **Stealth Audit:** Performed a `tcpdump` on the OPNsense LAN interface. Confirmed that outbound requests from the victim reach the firewall but are silently dropped, proving the "Default Deny" policy is active.
+
+---
+
+## Phase 4: Vulnerability Assessment (Next Steps)
+With the architecture 100% verified and "Golden Snapshots" taken, the lab is ready for offensive security testing.
+
+- [x] **Phase 3: Deploying the Victims**
+  - [x] Metasploitable 2 Deployment
+  - [x] Network Isolation & "Vault" Validation
+  - [x] Snapshot "Golden State" Created
+- [ ] **Phase 4: Vulnerability Assessment**
+  - [ ] Comprehensive Nmap Service Fingerprinting
+  - [ ] Vulnerability Research & Exploitation
